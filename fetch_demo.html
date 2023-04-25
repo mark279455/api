@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+</head>
+<body>
+    <h1>text</h1>
+	<div id="content_text"></div>
+	<h1>json</h1>
+    <div id="content_json"></div>
+	<script>
+		fetch("https://ci-swapi.herokuapp.com/api/")
+		.then(response => response.text())
+		.then(data => displayData(data))
+        .catch((e) => {
+          console.error("Error: ", e);  
+        })
+        fetch("https://ci-swapi.herokuapp.com/api/")
+		.then(response => response.json())
+		.then(data => displayData(data))
+        .catch((e) => {
+          console.error("Error: ", e);  
+        })
+
+        function displayData(data){
+            document.getElementById("content_text").innerText = data;
+        }
+	</script>
+	</body>
+</html>
